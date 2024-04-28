@@ -1,33 +1,48 @@
 <template>
-    <HeaderComponent />
-    <div class="container">
-        <BalanceComponent />
-        <IncomeExpences />
-        <TransactionList />
-        <AddTransaction />
-
-    </div>
-
+  <HeaderComponent />
+  <div class="container">
+    <BalanceComponent :total="total" />
+    <IncomeExpences />
+    <TransactionList :transactions="transactions" />
+    <AddTransaction />
+  </div>
 </template>
 
-<script type="module">
-
-import HeaderComponent from "./components/HeaderComponent.vue"
-import BalanceComponent from "./components/BalanceComponent.vue"
-import IncomeExpences from "./components/IncomeExpences.vue"
+<script setup>
+import HeaderComponent from "./components/HeaderComponent.vue";
+import BalanceComponent from "./components/BalanceComponent.vue";
+import IncomeExpences from "./components/IncomeExpences.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 
-export default {
-    components: {
-        HeaderComponent,
-        BalanceComponent,
-        IncomeExpences,
-        TransactionList,
-        AddTransaction
+import { ref, computed } from "vue";
 
-    },
+const transactions = ref([
+  {
+    id: 1,
+    text: "flower",
+    amount: -192.99,
+  },
+  {
+    id: 2,
+    text: "Salary",
+    amount: 3009.99,
+  },
+  {
+    id: 3,
+    text: "book",
+    amount: -9.99,
+  },
+  {
+    id: 4,
+    text: "Macbook",
+    amount: -2339.99,
+  },
+]);
 
-}
-
+const total = computed(() => {
+  return transactions.value.reduce((acc, transaction) => {
+    return acc + transaction.amount;
+  }, 0);
+});
 </script>
