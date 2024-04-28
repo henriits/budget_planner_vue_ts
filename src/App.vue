@@ -16,6 +16,9 @@ import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 
 import { ref, computed } from "vue";
+import { useToast } from "vue-toastification";
+
+const toast = useToast();
 
 const transactions = ref([
   {
@@ -70,7 +73,7 @@ const handleTransactionSubmitted = (transactionData) => {
     text: transactionData.text,
     amount: transactionData.amount,
   });
-  console.log(generateUniqueId());
+  toast.success("Transaction added!");
 };
 
 const generateUniqueId = () => {
