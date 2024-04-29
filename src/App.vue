@@ -47,7 +47,13 @@ onMounted(() => {
   if (savedTransactions) {
     transactions.value = savedTransactions;
   }
+  // Retrieve the selected currency from local storage
+  const savedCurrency = localStorage.getItem("selectedCurrency");
+  if (savedCurrency && savedCurrency in currencyRatios) {
+    selectedCurrency.value = savedCurrency;
+  }
 });
+
 
 const total = computed(() => {
   return transactions.value
@@ -116,6 +122,7 @@ const selectedCurrency = ref("$"); // Default selected currency symbol
 
 const updateCurrencyRatio = (currency) => {
   selectedCurrency.value = currency;
+  localStorage.setItem("selectedCurrency", currency);
 };
 
 const convertAmount = (amount) => {
@@ -130,6 +137,8 @@ const convertTransactions = (transactions) => {
     amount: (transaction.amount * ratio).toFixed(2)
   }));
 };
+
+
 
 </script>
 
