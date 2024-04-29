@@ -17,8 +17,8 @@
       </div>
       <br>
       <!-- Display total balance, income, expenses, and transactions in selected currency -->
-      <BalanceComponent :total="convertAmount(total)" :currencySymbol="selectedCurrency" />
-      <IncomeExpences :income="convertAmount(income)" :expenses="convertAmount(expenses)"
+      <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
+      <IncomeExpences :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
         :currencySymbol="selectedCurrency" />
       <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
         :currencySymbol="selectedCurrency" />
