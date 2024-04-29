@@ -10,15 +10,18 @@
         <div class="dropdown">
           <button class="dropbtn">Select Currency</button>
           <div class="dropdown-content">
-            <a v-for="option in currencyOptions" :key="option" @click="updateCurrencySymbol(option)">{{ option }}</a>
+            <a v-for="(ratio, currency) in currencyRatios" :key="currency" @click="updateCurrencyRatio(currency)">{{
+              currency }}</a>
           </div>
         </div>
       </div>
       <br>
-      <BalanceComponent :total="+total" :currencySymbol="currencySymbol" />
-      <IncomeExpences :income="+income" :expenses="+expenses" :currencySymbol="currencySymbol" />
-      <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted"
-        :currencySymbol="currencySymbol" />
+      <!-- Display total balance, income, expenses, and transactions in selected currency -->
+      <BalanceComponent :total="convertAmount(total)" :currencySymbol="selectedCurrency" />
+      <IncomeExpences :income="convertAmount(income)" :expenses="convertAmount(expenses)"
+        :currencySymbol="selectedCurrency" />
+      <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
+        :currencySymbol="selectedCurrency" />
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
     </div>
   </div>
@@ -33,14 +36,6 @@ import AddTransaction from "./components/AddTransaction.vue";
 
 import { ref, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
-
-const currencySymbol = ref("€");
-
-const currencyOptions = ["$", "€", "£", "¥"];
-
-const updateCurrencySymbol = (newSymbol) => {
-  currencySymbol.value = newSymbol;
-};
 
 const toast = useToast();
 
@@ -109,6 +104,33 @@ const saveTransactionsToLocalStorage = () =>
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
 };
+
+const currencyRatios = {
+  "$": 1, // Default currency ratio is 1
+  "€": 0.85, // Example: 1 USD = 0.85 EUR
+  "£": 0.75, // Example: 1 USD = 0.75 GBP
+  "¥": 110.27 // Example: 1 USD = 110.27 JPY
+};
+
+const selectedCurrency = ref("$"); // Default selected currency symbol
+
+const updateCurrencyRatio = (currency) => {
+  selectedCurrency.value = currency;
+};
+
+const convertAmount = (amount) => {
+  const ratio = currencyRatios[selectedCurrency.value];
+  return (amount * ratio).toFixed(2);
+};
+
+const convertTransactions = (transactions) => {
+  const ratio = currencyRatios[selectedCurrency.value];
+  return transactions.map(transaction => ({
+    ...transaction,
+    amount: (transaction.amount * ratio).toFixed(2)
+  }));
+};
+
 </script>
 
 <style>
