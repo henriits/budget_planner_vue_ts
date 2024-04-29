@@ -65,6 +65,11 @@ const expenses = computed(() => {
 });
 
 const handleTransactionSubmitted = (transactionData) => {
+  const amount = parseFloat(transactionData.amount);
+  if (isNaN(amount)) {
+    toast.error('Please provide a valid amount for the transaction.');
+    return;
+  }
   transactions.value.push({
     id: generateUniqueId(),
     text: transactionData.text,
