@@ -1,13 +1,20 @@
 <template>
-  <HeaderComponent />
-  <div class="container">
-    <BalanceComponent :total="+total" />
-    <IncomeExpences :income="+income" :expenses="+expenses" />
-    <TransactionList
-      :transactions="transactions"
-      @transactionDeleted="handleTransactionDeleted"
-    />
-    <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+  <div :class="{ 'dark-mode': isDarkMode }">
+
+    <div class="container">
+      <div class="header">
+        <HeaderComponent />
+        <button @click="toggleDarkMode">
+          {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+        </button>
+
+      </div>
+      <br>
+      <BalanceComponent :total="+total" />
+      <IncomeExpences :income="+income" :expenses="+expenses" />
+      <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted" />
+      <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+    </div>
   </div>
 </template>
 
@@ -24,6 +31,7 @@ import { useToast } from "vue-toastification";
 const toast = useToast();
 
 const transactions = ref([]);
+const isDarkMode = ref(false);
 
 onMounted(() => {
   const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
@@ -78,4 +86,20 @@ const handleTransactionDeleted = (id) => {
 
 const saveTransactionsToLocalStorage = () =>
   localStorage.setItem("transactions", JSON.stringify(transactions.value));
+
+const toggleDarkMode = () => {
+  isDarkMode.value = !isDarkMode.value;
+};
 </script>
+
+<style>
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header h2 {
+  margin: 0;
+}
+</style>

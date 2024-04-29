@@ -22,7 +22,10 @@ body {
 
 .container {
     margin: 30px auto;
-    width: 400px;
+    width: 600px;
+    border: 1px solid #e74c3c;
+    border-radius: 5%;
+    padding: 30px;
 }
 
 h1 {
@@ -150,3 +153,35 @@ input[type='number'] {
 .list li:hover .delete-btn {
     opacity: 1;
 }
+
+/* Dark Mode */
+.dark-mode body {
+    background-color: #34495e;
+    color: var(--dark-text);
+}
+
+.dark-mode .container {
+    background-color: #34495e;
+    color: var(--dark-text);
+}
+
+.dark-mode .inc-exp-container {
+    background-color: #34495e;
+    color: var(--dark-text);
+}
+
+.dark-mode .list li {
+    background-color: #34495e;
+    color: var(--dark-text);
+}
+
+.dark-mode .body {
+    background-color: #34495e; /* Dark mode button background color */
+}
+
+/*  on smaller screen change container width
+.container {
+
+    width: 200px;
+
+} */
