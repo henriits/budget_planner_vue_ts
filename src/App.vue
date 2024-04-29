@@ -113,9 +113,9 @@ const toggleDarkMode = () => {
 
 const currencyRatios = {
   "$": 1, // Default currency ratio is 1
-  "€": 0.85, // Example: 1 USD = 0.85 EUR
-  "£": 0.75, // Example: 1 USD = 0.75 GBP
-  "¥": 110.27 // Example: 1 USD = 110.27 JPY
+  "€": 0.93, // Example: 1 USD = 0.93 EUR
+  "£": 0.80, // Example: 1 USD = 0.80 GBP
+  "¥": 155.98 // Example: 1 USD = 155.98 JPY
 };
 
 const selectedCurrency = ref("$"); // Default selected currency symbol
