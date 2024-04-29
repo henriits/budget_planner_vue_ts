@@ -89,6 +89,7 @@ const handleTransactionSubmitted = (transactionData) => {
     id: generateUniqueId(),
     text: transactionData.text,
     amount: transactionData.amount,
+    category: transactionData.category
   });
   saveTransactionsToLocalStorage();
   toast.success("Transaction added!");
