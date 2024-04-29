@@ -1,12 +1,8 @@
 <template>
   <h3 v-if="transactions.length > 0">History</h3>
   <ul id="list" class="list" v-if="transactions.length > 0">
-    <li
-      v-for="transaction in transactions"
-      :key="transaction.id"
-      :class="transaction.amount < 0 ? 'minus' : 'plus'"
-    >
-      {{ transaction.text }} <span> ${{ transaction.amount }}</span>
+    <li v-for="transaction in transactions" :key="transaction.id" :class="transaction.amount < 0 ? 'minus' : 'plus'">
+      {{ transaction.text }} <span> {{ currencySymbol }}{{ transaction.amount }}</span>
       <button @click="deleteTransaction(transaction.id)" class="delete-btn">x</button>
     </li>
   </ul>
@@ -22,6 +18,11 @@ const props = defineProps({
     type: Array,
     required: true,
   },
+  currencySymbol: {
+    type: String,
+    required: true,
+    default: "$" // Default currency symbol is $
+  }
 });
 
 const deleteTransaction = (id) => {

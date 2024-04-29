@@ -1,18 +1,24 @@
 <template>
   <div :class="{ 'dark-mode': isDarkMode }">
-
     <div class="container">
       <div class="header">
         <HeaderComponent />
         <button @click="toggleDarkMode">
           {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
         </button>
-
+        <!-- Dropdown menu for selecting currency -->
+        <div class="dropdown">
+          <button class="dropbtn">Select Currency</button>
+          <div class="dropdown-content">
+            <a v-for="option in currencyOptions" :key="option" @click="updateCurrencySymbol(option)">{{ option }}</a>
+          </div>
+        </div>
       </div>
       <br>
-      <BalanceComponent :total="+total" />
-      <IncomeExpences :income="+income" :expenses="+expenses" />
-      <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted" />
+      <BalanceComponent :total="+total" :currencySymbol="currencySymbol" />
+      <IncomeExpences :income="+income" :expenses="+expenses" :currencySymbol="currencySymbol" />
+      <TransactionList :transactions="transactions" @transactionDeleted="handleTransactionDeleted"
+        :currencySymbol="currencySymbol" />
       <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
     </div>
   </div>
@@ -27,6 +33,14 @@ import AddTransaction from "./components/AddTransaction.vue";
 
 import { ref, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
+
+const currencySymbol = ref("€");
+
+const currencyOptions = ["$", "€", "£", "¥"];
+
+const updateCurrencySymbol = (newSymbol) => {
+  currencySymbol.value = newSymbol;
+};
 
 const toast = useToast();
 
@@ -106,5 +120,51 @@ const toggleDarkMode = () => {
 
 .header h2 {
   margin: 0;
+}
+
+/* Dropdown button style */
+.dropbtn {
+  background-color: #3498db;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 30px;
+}
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  border-radius: 30px;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Dropdown links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #b0a7a7;
+}
+
+/* Dark mode */
+.dark-mode .dropdown-content {
+  background-color: #8a8787;
+  color: white;
 }
 </style>
