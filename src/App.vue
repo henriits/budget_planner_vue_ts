@@ -16,8 +16,16 @@
         </div>
       </div>
       <!-- Doughnut Chart -->
-      <div class="chart-container">
-        <DoughnutChart ref="doughnutChart" />
+      <div>
+        <!-- Income and Expenses Chart -->
+        <div class="chart-container">
+          <DoughnutChart :chartData="incomeExpensesData" />
+        </div>
+        <!-- Transactions by Categories Chart -->
+        <div class="chart-container">
+          <DoughnutChart :chartData="categoryData" />
+        </div>
+        <!-- Other components and sections -->
       </div>
       <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
       <IncomeExpences :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
@@ -145,7 +153,52 @@ const convertTransactions = (transactions) => {
   }));
 };
 
+const incomeExpensesData = computed(() => {
+  return {
+    labels: ["Income", "Expenses"],
+    datasets: [
+      {
+        data: [income.value, expenses.value],
+        backgroundColor: ["#36A2EB", "#FF6384"],
+        hoverBackgroundColor: ["#36A2EB", "#FF6384"],
+      },
+    ],
+  };
+});
 
+const categoryData = computed(() => {
+  const categories = {};
+  transactions.value.forEach((transaction) => {
+    if (!categories[transaction.category]) {
+      categories[transaction.category] = 0;
+    }
+    categories[transaction.category] += transaction.amount;
+  });
+
+  const labels = Object.keys(categories);
+  const data = Object.values(categories);
+  const backgroundColor = generateRandomColors(labels.length);
+
+  return {
+    labels: labels,
+    datasets: [
+      {
+        data: data,
+        backgroundColor: backgroundColor,
+        hoverBackgroundColor: backgroundColor,
+      },
+    ],
+  };
+});
+
+const generateRandomColors = (numColors) => {
+  const colors = [];
+  for (let i = 0; i < numColors; i++) {
+    const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
+    colors.push(color);
+  }
+  return colors;
+};
 
 </script>
 
