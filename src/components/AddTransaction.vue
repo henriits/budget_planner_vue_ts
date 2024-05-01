@@ -21,6 +21,7 @@
 <script setup>
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
+import { categoryColors } from "../categoryColors";
 
 const text = ref("");
 const amount = ref("");
@@ -34,17 +35,11 @@ const categories = [
   "Shopping",
   "Entertainment",
   "Utilities",
-  "Others"
+  "Others",
+  "Income"
 ];
 
-const categoryColors = {
-  "Food": "#1c9e1c",
-  "Transportation": "#ff7f00",
-  "Shopping": "#ff3333",
-  "Entertainment": "#0099ff",
-  "Utilities": "#9933ff",
-  "Others": "#666666"
-};
+
 
 
 

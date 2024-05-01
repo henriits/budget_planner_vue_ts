@@ -47,6 +47,7 @@ import BalanceComponent from "./components/BalanceComponent.vue";
 import IncomeExpences from "./components/IncomeExpences.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
+import { categoryColors } from "./categoryColors";
 
 import { ref, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
@@ -166,6 +167,7 @@ const incomeExpensesData = computed(() => {
   };
 });
 
+
 const categoryData = computed(() => {
   const categories = {};
   transactions.value.forEach((transaction) => {
@@ -177,7 +179,7 @@ const categoryData = computed(() => {
 
   const labels = Object.keys(categories);
   const data = Object.values(categories);
-  const backgroundColor = generateRandomColors(labels.length);
+  const backgroundColor = labels.map(category => categoryColors[category] || '#000000'); // Using specific colors for each category
 
   return {
     labels: labels,
@@ -191,14 +193,7 @@ const categoryData = computed(() => {
   };
 });
 
-const generateRandomColors = (numColors) => {
-  const colors = [];
-  for (let i = 0; i < numColors; i++) {
-    const color = "#" + Math.floor(Math.random() * 16777215).toString(16);
-    colors.push(color);
-  }
-  return colors;
-};
+
 
 </script>
 
