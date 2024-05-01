@@ -15,19 +15,25 @@
           </div>
         </div>
       </div>
-      <br>
-      <!-- Display total balance, income, expenses, and transactions in selected currency -->
+      <!-- Doughnut Chart -->
+      <div class="chart-container">
+        <DoughnutChart ref="doughnutChart" />
+      </div>
       <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
       <IncomeExpences :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
         :currencySymbol="selectedCurrency" />
       <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
         :currencySymbol="selectedCurrency" />
-      <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+      <!-- Add transaction section -->
+      <div class="add-transaction-section">
+        <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import DoughnutChart from "./components/DoughnutChart.vue"
 import HeaderComponent from "./components/HeaderComponent.vue";
 import BalanceComponent from "./components/BalanceComponent.vue";
 import IncomeExpences from "./components/IncomeExpences.vue";
@@ -144,17 +150,21 @@ const convertTransactions = (transactions) => {
 </script>
 
 <style>
+.container {
+  max-width: 900px;
+  /* Set max width for large screens */
+  margin: 0 auto;
+  /* Center the container horizontally */
+  padding: 20px;
+  /* Add padding for better spacing */
+}
+
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.header h2 {
-  margin: 0;
-}
-
-/* Dropdown button style */
 .dropbtn {
   background-color: #3498db;
   color: white;
@@ -165,7 +175,6 @@ const convertTransactions = (transactions) => {
   border-radius: 30px;
 }
 
-/* Dropdown content (hidden by default) */
 .dropdown-content {
   display: none;
   position: absolute;
@@ -176,12 +185,10 @@ const convertTransactions = (transactions) => {
   border-radius: 30px;
 }
 
-/* Show the dropdown menu on hover */
 .dropdown:hover .dropdown-content {
   display: block;
 }
 
-/* Dropdown links */
 .dropdown-content a {
   color: black;
   padding: 12px 16px;
@@ -189,14 +196,31 @@ const convertTransactions = (transactions) => {
   display: block;
 }
 
-/* Change color of dropdown links on hover */
 .dropdown-content a:hover {
   background-color: #b0a7a7;
 }
 
-/* Dark mode */
 .dark-mode .dropdown-content {
   background-color: #8a8787;
   color: white;
+}
+
+.chart-container {
+  overflow-y: auto;
+  /* Add vertical scrollbar if chart exceeds max height */
+}
+
+.main-content {
+  display: flex;
+  flex-wrap: wrap;
+
+
+}
+
+.balance-section,
+.income-expenses-section,
+.add-transaction-section {
+  flex-basis: 100%;
+  /* Full width */
 }
 </style>
