@@ -48,6 +48,7 @@ import IncomeExpences from "./components/IncomeExpences.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 import { categoryColors } from "./categoryColors";
+import { currencyRatios } from "./currencyRatios"
 
 import { ref, computed, onMounted } from "vue";
 import { useToast } from "vue-toastification";
@@ -137,12 +138,7 @@ const toggleDarkMode = () => {
 
 };
 
-const currencyRatios = {
-  "$": 1, // Default currency ratio is 1
-  "€": 0.93, // Example: 1 USD = 0.93 EUR
-  "£": 0.80, // Example: 1 USD = 0.80 GBP
-  "¥": 155.98 // Example: 1 USD = 155.98 JPY
-};
+
 
 const selectedCurrency = ref("$"); // Default selected currency symbol
 
