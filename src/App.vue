@@ -67,7 +67,13 @@ onMounted(() => {
   if (savedCurrency && savedCurrency in currencyRatios) {
     selectedCurrency.value = savedCurrency;
   }
+  const darkModePreference = localStorage.getItem('darkModePreference');
+  if (darkModePreference !== null) {
+    isDarkMode.value = JSON.parse(darkModePreference);
+  }
 });
+
+
 
 
 const total = computed(() => {
@@ -125,6 +131,8 @@ const saveTransactionsToLocalStorage = () =>
 
 const toggleDarkMode = () => {
   isDarkMode.value = !isDarkMode.value;
+  localStorage.setItem('darkModePreference', JSON.stringify(isDarkMode.value));
+
 };
 
 const currencyRatios = {
