@@ -16,7 +16,7 @@
         </div>
       </div>
       <!-- Doughnut Chart -->
-      <div>
+      <div v-if="!isCanvasEmpty">
         <!-- Income and Expenses Chart -->
         <div class="chart-container">
           <DoughnutChart :chartData="incomeExpensesData" />
@@ -73,7 +73,9 @@ onMounted(() => {
   }
 });
 
-
+const isCanvasEmpty = computed(() => {
+  return transactions.value.length === 0;
+});
 
 
 const total = computed(() => {
