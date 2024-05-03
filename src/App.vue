@@ -28,7 +28,7 @@
         <!-- Other components and sections -->
       </div>
       <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
-      <IncomeExpences :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
+      <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
         :currencySymbol="selectedCurrency" />
       <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
         :currencySymbol="selectedCurrency" />
@@ -44,7 +44,7 @@
 import DoughnutChart from "./components/DoughnutChart.vue"
 import HeaderComponent from "./components/HeaderComponent.vue";
 import BalanceComponent from "./components/BalanceComponent.vue";
-import IncomeExpences from "./components/IncomeExpences.vue";
+import IncomeExpenses from "./components/IncomeExpenses.vue";
 import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 import { categoryColors } from "./categoryColors";
