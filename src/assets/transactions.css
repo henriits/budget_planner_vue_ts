@@ -3,6 +3,7 @@
     background-color: #666060;
     border-radius: 20px;
     display: flex;
+    margin-top: 20px;
 }
 
 .inc-exp-container > div {
@@ -15,7 +16,7 @@
 }
 
 .money {
-    font-size: 40px;
+    font-size: 50px;
     letter-spacing: 1px;
     margin: 15px 0;
 }
@@ -92,5 +93,8 @@
 @media (max-width: 768px) {
     .delete-btn {
         right: 18%;
+    }
+    .money {
+        font-size: 33px;
     }
 }

@@ -86,9 +86,9 @@ select {
   width: calc(100% - 10px);
   height: 40px;
   padding: 5px;
-  border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
+  color: black;
 }
 
 .form-button {
