@@ -14,12 +14,12 @@
           }}</option>
       </select>
     </div>
-    <button class="btn">Add transaction</button>
+    <button class="form-button">Add transaction</button>
   </form>
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, defineEmits } from "vue";
 import { useToast } from "vue-toastification";
 import { categoryColors } from "../categoryColors";
 
@@ -39,10 +39,6 @@ const categories = [
   "Income"
 ];
 
-
-
-
-
 const onSubmit = () => {
   if (!text.value || !amount.value || !selectedCategory.value) {
     toast.error("All fields must be filled!");
@@ -61,13 +57,44 @@ const onSubmit = () => {
   selectedCategory.value = "";
 };
 </script>
+
 <style>
 .category-bubble {
-  background-color: aqua;
-  /* currenty added default color  need to make dynamicly changed*/
-
   border-radius: 10px;
   padding: 2px 8px;
   margin-left: 10px;
+  color: rgb(76, 79, 79);
+}
+
+.form-control {
+  margin-bottom: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+  .form-control {
+    width: calc(50% - 10px);
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+}
+
+input[type="text"],
+select {
+  width: calc(100% - 10px);
+  height: 40px;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-button {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  height: 40px;
 }
 </style>

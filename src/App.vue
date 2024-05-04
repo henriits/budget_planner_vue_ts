@@ -15,8 +15,12 @@
           </div>
         </div>
       </div>
-      <!-- Doughnut Chart -->
-      <div v-if="!isCanvasEmpty">
+
+      <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
+      <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
+        :currencySymbol="selectedCurrency" />
+              <!-- Doughnut Chart -->
+      <div v-if="!isCanvasEmpty" class="charts">
         <!-- Income and Expenses Chart -->
         <div class="chart-container">
           <DoughnutChart :chartData="incomeExpensesData" />
@@ -27,11 +31,10 @@
         </div>
         <!-- Other components and sections -->
       </div>
-      <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
-      <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
-        :currencySymbol="selectedCurrency" />
+      <div class="history-container">
       <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
         :currencySymbol="selectedCurrency" />
+      </div>
       <!-- Add transaction section -->
       <div class="add-transaction-section">
         <AddTransaction @transactionSubmitted="handleTransactionSubmitted" />
@@ -203,78 +206,3 @@ const categoryData = computed(() => {
 
 </script>
 
-<style>
-.container {
-  max-width: 900px;
-  /* Set max width for large screens */
-  margin: 0 auto;
-  /* Center the container horizontally */
-  padding: 20px;
-  /* Add padding for better spacing */
-}
-
-.header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.dropbtn {
-  background-color: #3498db;
-  color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 30px;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
-  z-index: 1;
-  border-radius: 30px;
-}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-}
-
-.dropdown-content a:hover {
-  background-color: #b0a7a7;
-}
-
-.dark-mode .dropdown-content {
-  background-color: #8a8787;
-  color: white;
-}
-
-.chart-container {
-  overflow-y: auto;
-  /* Add vertical scrollbar if chart exceeds max height */
-}
-
-.main-content {
-  display: flex;
-  flex-wrap: wrap;
-
-
-}
-
-.balance-section,
-.income-expenses-section,
-.add-transaction-section {
-  flex-basis: 100%;
-  /* Full width */
-}
-</style>
