@@ -21,11 +21,11 @@
 }
 
 .money.plus {
-    color: #2ecc71;
+    color: #00c853;
 }
 
 .money.minus {
-    color: #c0392b;
+    color: #ff5252;
 }
 
 /* List styles */
@@ -48,11 +48,13 @@
 }
 
 .list li.plus {
-    border-bottom: 3px solid #00ff6a;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, transparent 90%, #00c853 100%) 1;
 }
 
 .list li.minus {
-    border-bottom: 3px solid #ff1900;
+    border-bottom: 3px solid transparent;
+    border-image: linear-gradient(to right, transparent 90%, #ff1900 100%) 1;
 }
 
 .delete-btn {
@@ -70,7 +72,6 @@
     transition: opacity 0.3s ease;
 }
 
-/* Add Transaction Section styles */
 .add-transaction-section {
     max-width: 1200px;
     margin: 0 auto;
@@ -86,4 +87,10 @@
 .balance-div {
     text-align: center;
     font-size: 2rem;
+}
+
+@media (max-width: 768px) {
+    .delete-btn {
+        right: 18%;
+    }
 }

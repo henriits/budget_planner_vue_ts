@@ -20,25 +20,41 @@ button:hover {
 }
 
 .dropbtn {
-    background-color: inherit; /* Inherit from button styles */
-    color: inherit;
+    background-color: #333; /* Light mode default background */
+    color: #fff;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
 }
 
 .dropdown-content {
     display: none;
     position: absolute;
+    background-color: #fff; /* Dropdown background color */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dropdown box shadow */
+    border-radius: 8px;
+    padding: 8px 0;
     min-width: 160px;
     z-index: 1;
+}
+
+.dropdown-content a {
+    color: #333; /* Dropdown text color */
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.2s ease-in-out;
+}
+
+.dropdown-content a:hover {
+    background-color: #f5f5f5; /* Dropdown hover background color */
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-
 /* Charts styles */
 .charts {
     display: flex; /* Arrange charts side-by-side */

@@ -172,8 +172,8 @@ const incomeExpensesData = computed(() => {
     datasets: [
       {
         data: [income.value, expenses.value],
-        backgroundColor: ["#36A2EB", "#FF6384"],
-        hoverBackgroundColor: ["#36A2EB", "#FF6384"],
+        backgroundColor: ["#00C853", "#FF5252"],
+        hoverBackgroundColor: ["#00C853", "#FF5252"],
       },
     ],
   };

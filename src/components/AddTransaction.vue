@@ -60,10 +60,11 @@ const onSubmit = () => {
 
 <style>
 .category-bubble {
-  border-radius: 10px;
-  padding: 2px 8px;
-  margin-left: 10px;
-  color: rgb(76, 79, 79);
+  border-radius: 8px;
+  padding: 1px 6px;
+  margin-left: 5px;
+  font-size: 12px;
+  color: rgb(252, 252, 252);
 }
 
 .form-control {

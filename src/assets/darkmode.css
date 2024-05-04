@@ -50,14 +50,18 @@
 }
 
 .dark-mode .list li.minus {
-    border-bottom: 3px solid #ff1900; /* Dark mode border color for minus transaction */
+    border-bottom: 3px solid #ff5252; /* Dark mode border color for minus transaction */
 }
 
 .dark-mode .delete-btn {
-    background-color: #333; /* Dark mode delete button background */
+    background-color: #ff5252; /* Dark mode delete button background */
     color: #fff; /* Dark mode delete button text color */
 }
 
 .dark-mode .add-transaction-section {
     background-color: #333; /* Dark mode add transaction section background */
+}
+
+.dark-mode .dropdown-content a:hover {
+    background-color: #3bb01e; /* Dropdown hover background color */
 }

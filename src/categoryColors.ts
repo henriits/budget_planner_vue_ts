@@ -1,9 +1,9 @@
 export const categoryColors = {
-    Food: '#1c9e1c',
-    Transportation: '#ff7f00',
-    Shopping: '#ff3333',
-    Entertainment: '#0099ff',
-    Utilities: '#9933ff',
-    Others: '#666666',
-    Income: '#00FF00', // Assigning a specific color for "Income"
+    Food: '#4CAF50',
+    Transportation: '#FFA000',
+    Shopping: '#FF5252',
+    Entertainment: '#3F51B5',
+    Utilities: '#9575CD',
+    Others: '#757575',
+    Income: '#00C853',
 };
