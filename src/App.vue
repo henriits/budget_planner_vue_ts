@@ -15,11 +15,14 @@
           </div>
         </div>
       </div>
-
-      <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
-      <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
-        :currencySymbol="selectedCurrency" />
-              <!-- Doughnut Chart -->
+      <div class="balance-div">
+        <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
+      </div>
+      <div class="income-expense-div">
+        <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
+          :currencySymbol="selectedCurrency" />
+      </div>
+      <!-- Doughnut Chart -->
       <div v-if="!isCanvasEmpty" class="charts">
         <!-- Income and Expenses Chart -->
         <div class="chart-container">
@@ -32,8 +35,8 @@
         <!-- Other components and sections -->
       </div>
       <div class="history-container">
-      <TransactionList :transactions="convertTransactions(transactions)" @transactionDeleted="handleTransactionDeleted"
-        :currencySymbol="selectedCurrency" />
+        <TransactionList :transactions="convertTransactions(transactions)"
+          @transactionDeleted="handleTransactionDeleted" :currencySymbol="selectedCurrency" />
       </div>
       <!-- Add transaction section -->
       <div class="add-transaction-section">
@@ -205,4 +208,3 @@ const categoryData = computed(() => {
 
 
 </script>
-

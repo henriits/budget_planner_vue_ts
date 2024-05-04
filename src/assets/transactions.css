@@ -1,0 +1,89 @@
+/* Income and Expense container styles */
+.inc-exp-container {
+    background-color: #666060;
+    border-radius: 20px;
+    display: flex;
+}
+
+.inc-exp-container > div {
+    flex: 1;
+    text-align: center;
+}
+
+.inc-exp-container > div:first-of-type {
+    border-right: 1px solid #dedede;
+}
+
+.money {
+    font-size: 40px;
+    letter-spacing: 1px;
+    margin: 15px 0;
+}
+
+.money.plus {
+    color: #2ecc71;
+}
+
+.money.minus {
+    color: #c0392b;
+}
+
+/* List styles */
+.list {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 40px;
+}
+
+.list li {
+    background-color: #fff;
+    box-shadow: var(--box-shadow);
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 10px;
+}
+
+.list li.plus {
+    border-bottom: 3px solid #00ff6a;
+}
+
+.list li.minus {
+    border-bottom: 3px solid #ff1900;
+}
+
+.delete-btn {
+    cursor: pointer;
+    background-color: #e74c3c;
+    border: 0;
+    color: #fff;
+    font-size: 20px;
+    line-height: 20px;
+    padding: 2px 5px;
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translate(-100%, -50%);
+    transition: opacity 0.3s ease;
+}
+
+/* Add Transaction Section styles */
+.add-transaction-section {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: #666060;
+}
+
+.income-expense-div {
+    padding-bottom: 20px;
+}
+
+.balance-div {
+    text-align: center;
+    font-size: 2rem;
+}

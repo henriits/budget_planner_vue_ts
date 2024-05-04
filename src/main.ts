@@ -2,7 +2,11 @@ import { createApp } from 'vue';
 import { createPinia } from 'pinia';
 import Toast from 'vue-toastification';
 import 'vue-toastification/dist/index.css';
-import './assets/style.css';
+import './assets/base.css';
+import './assets/components.css';
+import './assets/layout.css';
+import './assets/transactions.css';
+import './assets/darkmode.css';
 
 import App from './App.vue';
 

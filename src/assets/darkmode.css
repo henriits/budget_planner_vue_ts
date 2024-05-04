@@ -1,0 +1,63 @@
+.dark-mode {
+    color: #ddd; /* Dark mode default color */
+    background-color: #222; /* Dark mode default background */
+    transition: background-color 0.9s ease-in-out;
+}
+
+/* Dark mode styles for base elements */
+.dark-mode body {
+    color: #ddd; /* Dark mode default color */
+    background-color: #222; /* Dark mode default background */
+}
+
+/* Dark mode styles for buttons */
+.dark-mode button {
+    background-color: #eee;
+    color: #222;
+}
+
+.dark-mode button:hover {
+    background-color: #ccc; /* Dark mode hover background */
+}
+
+/* Dark mode styles for dropdown */
+.dark-mode .dropdown-content {
+    background-color: #333; /* Dark mode dropdown background */
+    box-shadow: none; /* No box-shadow in dark mode */
+}
+
+.dark-mode .dropdown-content a {
+    color: #fff; /* Dynamic text color */
+}
+
+/* Dark mode styles for charts */
+.dark-mode .chart-container {
+    background-color: #333; /* Dark mode chart background */
+}
+
+/* Dark mode styles for transactions */
+.dark-mode .inc-exp-container {
+    background-color: #333; /* Dark mode transaction container background */
+}
+
+.dark-mode .list li {
+    background-color: #333; /* Dark mode list item background */
+    color: #fff; /* Dark mode text color */
+}
+
+.dark-mode .list li.plus {
+    border-bottom: 3px solid #00ff6a; /* Dark mode border color for plus transaction */
+}
+
+.dark-mode .list li.minus {
+    border-bottom: 3px solid #ff1900; /* Dark mode border color for minus transaction */
+}
+
+.dark-mode .delete-btn {
+    background-color: #333; /* Dark mode delete button background */
+    color: #fff; /* Dark mode delete button text color */
+}
+
+.dark-mode .add-transaction-section {
+    background-color: #333; /* Dark mode add transaction section background */
+}

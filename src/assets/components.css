@@ -1,0 +1,54 @@
+/* Button styles */
+button {
+    background-color: #333; /* Light mode default background */
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s ease-in-out;
+}
+
+button:hover {
+    background-color: #222; /* Light mode hover background */
+}
+
+/* Dropdown styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: inherit; /* Inherit from button styles */
+    color: inherit;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Charts styles */
+.charts {
+    display: flex; /* Arrange charts side-by-side */
+    justify-content: space-between; /* Space charts evenly */
+}
+
+.chart-container {
+    width: 48%; /* Set each chart to 48% width */
+    padding-top: 15px;
+    padding-bottom: 25px;
+    border-radius: 30px;
+    margin-bottom: 10px;
+}
