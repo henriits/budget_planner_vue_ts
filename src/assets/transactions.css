@@ -1,10 +1,4 @@
 /* Income and Expense container styles */
-.inc-exp-container {
-    background-color: #666060;
-    border-radius: 20px;
-    display: flex;
-    margin-top: 20px;
-}
 
 .inc-exp-container > div {
     flex: 1;
@@ -37,8 +31,7 @@
 }
 
 .list li {
-    background-color: #fff;
-    box-shadow: var(--box-shadow);
+    background-color: var(--root-color);
     color: #333;
     display: flex;
     justify-content: space-between;
@@ -71,14 +64,6 @@
     right: 10%;
     transform: translate(-100%, -50%);
     transition: opacity 0.3s ease;
-}
-
-.add-transaction-section {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: #666060;
 }
 
 .income-expense-div {

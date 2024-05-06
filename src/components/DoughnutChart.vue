@@ -3,10 +3,10 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue';
+import { ref, onMounted, watch, defineProps } from 'vue';
 import Chart from 'chart.js/auto';
 
-const props = defineProps(['chartData']);
+const props = defineProps(['chartData', 'isDarkMode']);
 
 const doughnutChartCanvas = ref(null);
 let chartInstance = null;
@@ -17,8 +17,8 @@ onMounted(() => {
     }
 });
 
-watch(() => props.chartData, () => {
-    if (doughnutChartCanvas.value) {
+watch(() => [props.chartData, props.isDarkMode], ([chartData, isDarkMode], [prevChartData, prevIsDarkMode]) => {
+    if (doughnutChartCanvas.value && (chartData !== prevChartData || isDarkMode !== prevIsDarkMode)) {
         destroyChart(); // Destroy existing chart before rendering new one
         renderChart();
     }
@@ -34,10 +34,13 @@ const renderChart = () => {
             plugins: {
                 legend: {
                     display: true,
+                    labels: {
+                        color: props.isDarkMode ? 'rgba(252, 254, 254, 0.7)' : 'rgba(0,0,0)'
+                    }
                 },
                 tooltip: {
-                    enabled: true
-                }
+                    enabled: true,
+                },
             }
         }
     });

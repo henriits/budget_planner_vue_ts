@@ -26,11 +26,11 @@
       <div v-if="!isCanvasEmpty" class="charts">
         <!-- Income and Expenses Chart -->
         <div class="chart-container">
-          <DoughnutChart :chartData="incomeExpensesData" />
+          <DoughnutChart :chartData="incomeExpensesData" :isDarkMode="isDarkMode" />
         </div>
         <!-- Transactions by Categories Chart -->
         <div class="chart-container">
-          <DoughnutChart :chartData="categoryData" />
+          <DoughnutChart :chartData="categoryData" :isDarkMode="isDarkMode" />
         </div>
         <!-- Other components and sections -->
       </div>

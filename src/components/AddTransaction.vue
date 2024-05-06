@@ -58,44 +58,4 @@ const onSubmit = () => {
 };
 </script>
 
-<style>
-.category-bubble {
-  border-radius: 8px;
-  padding: 1px 6px;
-  margin-left: 5px;
-  font-size: 12px;
-  color: rgb(252, 252, 252);
-}
-
-.form-control {
-  margin-bottom: 10px;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-@media (min-width: 768px) {
-  .form-control {
-    width: calc(50% - 10px);
-    display: inline-block;
-    margin-bottom: 20px;
-  }
-}
-
-input[type="text"],
-select {
-  width: calc(100% - 10px);
-  height: 40px;
-  padding: 5px;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: black;
-}
-
-.form-button {
-  background-color: #4CAF50;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  height: 40px;
-}
-</style>
+<style></style>
