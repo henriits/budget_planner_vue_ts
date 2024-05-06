@@ -8,12 +8,17 @@
       <input type="text" id="amount" v-model="amount" placeholder="Enter amount (income, -expense) example: -100" />
     </div>
     <div class="form-control">
-      <select v-model="selectedCategory" @change="changeCategoryColor">
+      <select v-model="selectedCategory">
         <option value="">Select Category</option>
         <option v-for="category in categories" :key="category" :style="{ backgroundColor: categoryColors[category] }">
           {{ category }}
         </option>
-
+      </select>
+    </div>
+    <div class="form-control">
+      <select v-model="selectedCurrency">
+        <option value="">Select Currency</option>
+        <option v-for="(ratio, currency) in currencyRatios" :key="currency">{{ currency }}</option>
       </select>
     </div>
     <button class="form-button">Add transaction</button>
@@ -23,11 +28,13 @@
 <script setup>
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
+import { currencyRatios } from "../currencyRatios";
 import { categoryColors } from "../categoryColors";
 
 const text = ref("");
 const amount = ref("");
 const selectedCategory = ref("");
+const selectedCurrency = ref("");
 const emit = defineEmits(["transactionSubmitted"]);
 const toast = useToast();
 
@@ -42,13 +49,28 @@ const categories = [
 ];
 
 const onSubmit = () => {
-  if (!text.value || !amount.value || !selectedCategory.value) {
+  if (!text.value || !amount.value || !selectedCategory.value || !selectedCurrency.value) {
     toast.error("All fields must be filled!");
     return;
   }
+
+  const ratio = currencyRatios[selectedCurrency.value];
+  if (!ratio) {
+    toast.error("Invalid currency ratio selected!");
+    return;
+  }
+
+  const parsedAmount = parseFloat(amount.value);
+  if (isNaN(parsedAmount)) {
+    toast.error("Please enter a valid amount!");
+    return;
+  }
+
+  const convertedAmount = parsedAmount / ratio; // Convert amount using selected currency ratio
+
   const transactionData = {
     text: text.value,
-    amount: parseFloat(amount.value),
+    amount: convertedAmount,
     category: selectedCategory.value,
     categoryColor: categoryColors[selectedCategory.value] // Pass category color
   };
@@ -58,6 +80,5 @@ const onSubmit = () => {
   amount.value = "";
   selectedCategory.value = "";
 };
-</script>
 
-<style></style>
+</script>

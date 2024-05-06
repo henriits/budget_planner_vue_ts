@@ -146,7 +146,7 @@ const toggleDarkMode = () => {
 
 
 
-const selectedCurrency = ref("$"); // Default selected currency symbol
+const selectedCurrency = ref(""); // Default selected currency symbol
 
 const updateCurrencyRatio = (currency) => {
   selectedCurrency.value = currency;
