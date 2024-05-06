@@ -2,7 +2,7 @@ import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { currencyRatios } from './currencyRatios';
 
-export const selectedCurrency: Ref<string> = ref(''); // Default selected currency symbol
+export const selectedCurrency: Ref<string> = ref('$'); // Default selected currency symbol
 
 export const updateCurrencyRatio = (currency: string) => {
     selectedCurrency.value = currency;
