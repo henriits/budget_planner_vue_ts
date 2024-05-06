@@ -10,8 +10,10 @@
     <div class="form-control">
       <select v-model="selectedCategory" @change="changeCategoryColor">
         <option value="">Select Category</option>
-        <option v-for="category in categories" :key="category" :style="{ color: categoryColors[category] }">{{ category
-          }}</option>
+        <option v-for="category in categories" :key="category" :style="{ backgroundColor: categoryColors[category] }">
+          {{ category }}
+        </option>
+
       </select>
     </div>
     <button class="form-button">Add transaction</button>
