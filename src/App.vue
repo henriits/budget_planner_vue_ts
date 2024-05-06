@@ -167,11 +167,14 @@ const convertTransactions = (transactions) => {
 };
 
 const incomeExpensesData = computed(() => {
+  const convertedIncome = convertAmount(income.value);
+  const convertedExpenses = convertAmount(expenses.value);
+
   return {
     labels: ["Income", "Expenses"],
     datasets: [
       {
-        data: [income.value, expenses.value],
+        data: [convertedIncome, convertedExpenses],
         backgroundColor: ["#00C853", "#FF5252"],
         hoverBackgroundColor: ["#00C853", "#FF5252"],
       },
@@ -186,7 +189,7 @@ const categoryData = computed(() => {
     if (!categories[transaction.category]) {
       categories[transaction.category] = 0;
     }
-    categories[transaction.category] += transaction.amount;
+    categories[transaction.category] += convertAmount(transaction.amount);
   });
 
   const labels = Object.keys(categories);
@@ -204,6 +207,7 @@ const categoryData = computed(() => {
     ],
   };
 });
+
 
 
 
