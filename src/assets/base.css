@@ -37,6 +37,15 @@ h4 {
         display: inline-block;
         margin-bottom: 20px;
     }
+    .form-button {
+        width: calc(49% - 10px);
+    }
+}
+
+@media (max-width: 767px) {
+    .form-button {
+        width: calc(100% - 10px);
+    }
 }
 
 input[type='text'],
