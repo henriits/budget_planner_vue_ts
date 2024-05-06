@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { ref, defineEmits } from "vue";
+import { ref } from "vue";
 import { useToast } from "vue-toastification";
 import { categoryColors } from "../categoryColors";
 

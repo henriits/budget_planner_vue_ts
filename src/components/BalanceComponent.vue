@@ -4,8 +4,8 @@
 </template>
 
 <script setup>
-import { defineProps } from "vue";
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   total: {
     type: Number,

@@ -16,10 +16,10 @@
 
 <script setup>
 import { categoryColors } from "../categoryColors";
-import { defineProps } from "vue";
 
 const emit = defineEmits(["transactionDeleted"]);
 
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const props = defineProps({
   transactions: {
     type: Array,

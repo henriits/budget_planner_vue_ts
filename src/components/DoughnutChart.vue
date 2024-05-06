@@ -3,7 +3,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch, defineProps } from 'vue';
+import { ref, onMounted, watch } from 'vue';
 import Chart from 'chart.js/auto';
 
 const props = defineProps(['chartData', 'isDarkMode']);
