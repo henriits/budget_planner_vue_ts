@@ -55,13 +55,12 @@ import TransactionList from "./components/TransactionList.vue";
 import AddTransaction from "./components/AddTransaction.vue";
 import { categoryColors } from "./categoryColors";
 import { currencyRatios } from "./currencyRatios";
-import { ref, computed, onMounted } from "vue";
-import { transactions, handleTransactionSubmitted, handleTransactionDeleted, saveTransactionsToLocalStorage } from "./transactionLogic";
+import { computed, onMounted } from "vue";
+import { transactions, handleTransactionSubmitted, handleTransactionDeleted} from "./transactionLogic";
 import { isDarkMode, toggleDarkMode, loadDarkModePreference } from "./darkModeLogic";
 import { selectedCurrency, updateCurrencyRatio, convertAmount, convertTransactions } from "./currencyLogic";
-import { useToast } from 'vue-toastification';
 
-const toast = useToast();
+
 
 onMounted(() => {
   loadDarkModePreference();
