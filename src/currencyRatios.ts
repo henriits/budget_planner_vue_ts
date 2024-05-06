@@ -1,7 +1,6 @@
-export const currencyRatios = {
-    '$': 1,  // Default currency ratio is 1
-    '€': 0.93, // Example: 1 USD = 0.93 EUR
-    '£': 0.8, // Example: 1 USD = 0.80 GBP
-    '¥': 155.98, // Example: 1 USD = 155.98 JPY
+export const currencyRatios: { [key: string]: number } = {
+    '$': 1, // Assuming default currency
+    '€': 0.83, // Euro
+    '£': 0.72, // Pound Sterling
+    '¥': 110.13, // Japanese Yen
 };
-// Future add API to get more detailed currency info.

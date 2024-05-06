@@ -1,4 +1,4 @@
-export const categoryColors = {
+export const categoryColors: Record<string, string> = {
     Food: '#216336',
     Transportation: '#FA9800',
     Shopping: '#2196F3',
