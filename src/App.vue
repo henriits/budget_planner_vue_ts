@@ -110,11 +110,14 @@ const incomeExpensesData = computed(() => {
 
 const categoryData = computed(() => {
   const categories = {};
+
   transactions.value.forEach((transaction) => {
     if (!categories[transaction.category]) {
       categories[transaction.category] = 0;
     }
-    categories[transaction.category] += convertAmount(transaction.amount);
+    // Convert amount while retaining its sign (-amount)
+    const convertedAmount = convertAmount(Math.abs(transaction.amount)) * Math.sign(transaction.amount);
+    categories[transaction.category] += convertedAmount;
   });
 
   const labels = Object.keys(categories);
