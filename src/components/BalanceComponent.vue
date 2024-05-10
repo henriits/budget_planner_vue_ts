@@ -3,10 +3,9 @@
   <h1 id="balance">{{ currencySymbol }}{{ total }}</h1>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
+defineProps({
   total: {
     type: Number,
     required: true,

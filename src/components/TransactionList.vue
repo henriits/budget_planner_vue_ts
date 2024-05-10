@@ -15,15 +15,22 @@
   <h3 v-else>No transactions found</h3>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { categoryColors } from "../categoryColors";
 
 const emit = defineEmits(["transactionDeleted"]);
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
+interface Transaction {
+  id: number;
+  text: string;
+  amount: number;
+  category: string;
+}
+import type { PropType } from 'vue';
+
+defineProps({
   transactions: {
-    type: Array,
+    type: Array as PropType<Transaction[]>,
     required: true,
   },
   currencySymbol: {
@@ -33,14 +40,11 @@ const props = defineProps({
   }
 });
 
-
-
-const getCategoryColor = (category) => {
+const getCategoryColor = (category: string) => {
   return categoryColors[category] || 'aqua'; // Default color is aqua if no match found
 };
 
-
-const deleteTransaction = (id) => {
+const deleteTransaction = (id: number) => {
   emit("transactionDeleted", id);
 };
 </script>

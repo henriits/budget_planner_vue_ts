@@ -11,10 +11,10 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-const props = defineProps({
+defineProps({
   income: {
     type: Number,
     required: true,

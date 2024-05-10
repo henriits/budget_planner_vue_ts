@@ -18,14 +18,14 @@
     <div class="form-control">
       <select v-model="selectedCurrency">
         <option value="">Select Currency</option>
-        <option v-for="(ratio, currency) in currencyRatios" :key="currency">{{ currency }}</option>
+        <option v-for="currency in Object.keys(currencyRatios)" :key="currency">{{ currency }}</option>
       </select>
     </div>
     <button class="form-button">Add transaction</button>
   </form>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from "vue";
 import { useToast } from "vue-toastification";
 import { currencyRatios } from "../currencyRatios";
