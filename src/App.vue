@@ -4,7 +4,7 @@
       <div class="header">
         <HeaderComponent />
         <button @click="toggleDarkMode">
-          {{ isDarkMode ? 'Light Mode' : 'Dark Mode' }}
+          <FontAwesomeIcon :icon="isDarkMode ? faSun : faMoon" /> {{ isDarkMode ? 'Light' : 'Dark' }}
         </button>
         <!-- Dropdown menu for selecting currency -->
         <div class="dropdown">
@@ -59,6 +59,8 @@ import { computed, onMounted } from "vue";
 import { transactions, handleTransactionSubmitted, handleTransactionDeleted} from "./transactionLogic";
 import { isDarkMode, toggleDarkMode, loadDarkModePreference } from "./darkModeLogic";
 import { selectedCurrency, updateCurrencyRatio, convertAmount, convertTransactions } from "./currencyLogic";
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 
 
