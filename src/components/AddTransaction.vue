@@ -2,13 +2,13 @@
   <h3>Add new transaction</h3>
   <form id="form" @submit.prevent="onSubmit">
     <div class="form-control">
-      <input type="text" id="text" v-model="text" placeholder="Enter Name (example : Salary)" />
+      <input type="text" id="text" name="text" v-model="text" placeholder="Enter Name (example : Salary)" />
     </div>
     <div class="form-control">
-      <input type="text" id="amount" v-model="amount" placeholder="Enter amount (income, -expense) example: -100" />
+      <input type="text" id="amount" name="amount" v-model="amount" placeholder="Enter amount (income, -expense) example: -100" />
     </div>
     <div class="form-control">
-      <select v-model="selectedCategory">
+      <select v-model="selectedCategory" aria-label="Select Category">
         <option value="">Select Category</option>
         <option v-for="category in categories" :key="category" :style="{ backgroundColor: categoryColors[category] }">
           {{ category }}
@@ -16,7 +16,7 @@
       </select>
     </div>
     <div class="form-control">
-      <select v-model="selectedCurrency">
+      <select v-model="selectedCurrency" aria-label="Select Currency">
         <option value="">Select Currency</option>
         <option v-for="currency in Object.keys(currencyRatios)" :key="currency">{{ currency }}</option>
       </select>
