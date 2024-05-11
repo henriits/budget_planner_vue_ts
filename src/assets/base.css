@@ -1,13 +1,15 @@
 :root {
-    --root-color: #d8d4d4; /* Define your root color here */
-    --light-background: rgba(152, 152, 152, 0.808);
+    --root-color: #FCE1B5; /* Define your root color here */
+    --light-background: #FEF0D6;
+    --button-color: #964116;
+    --button-hover-color: #f3861c;
 }
 
 body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #2b2b2b; /* Light mode default color */
+    color: #0e0101; /* Light mode default color */
     background-color: var(--light-background); /* Light mode default background */
     transition: background-color 0.9s ease-in-out;
 }
@@ -50,16 +52,16 @@ select {
     padding: 5px;
     border-radius: 4px;
     box-sizing: border-box;
-    color: rgb(255, 254, 254);
-    background-color: var(--light-background);
+    color: var(--light-background);
+    background-color: #f3861c;
 }
 input[type='text']::placeholder,
 select::placeholder {
-    color: rgb(255, 255, 255); /* Adjust opacity as needed */
+    color: var(--light-background); /* Adjust opacity as needed */
 }
 
 .form-button {
-    background-color: #2b2b2b;
+    background-color: var(--button-color);
     color: white;
     border-radius: 4px;
     cursor: pointer;

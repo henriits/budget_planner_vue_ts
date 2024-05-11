@@ -1,48 +1,48 @@
+:root {
+    --dark-background:#454545;
+    --dark-container: #3D3D3D;
+}
+
+
 .dark-mode {
-    color: #cbc6c6; /* Dark mode default color */
-    background-color: #222; /* Dark mode default background */
+    color: var(--light-background); /* Dark mode default color */
+    background-color: var(--dark-background); /* Dark mode default background */
     transition: background-color 0.9s ease-in-out;
 }
 
-/* Dark mode styles for base elements */
-.dark-mode body {
-    color: #cbc6c6; /* Dark mode default color */
-    background-color: #222; /* Dark mode default background */
-}
 
-/* Dark mode styles for buttons */
 .dark-mode button {
-    background-color: #cbc6c6;
-    color: #222;
+    background-color: var(--button-color);
+    color: var(--light-background);
+
 }
 
 .dark-mode button:hover {
-    background-color: #5f5e5e; /* Dark mode hover background */
+    background-color: var(--button-hover-color); /* Dark mode hover background */
 }
 
 /* Dark mode styles for dropdown */
 .dark-mode .dropdown-content {
-    background-color: #333; /* Dark mode dropdown background */
-    box-shadow: none; /* No box-shadow in dark mode */
+    background-color: var(--dark-container); /* Dark mode dropdown background */
 }
 
 .dark-mode .dropdown-content a {
-    color: #cbc6c6; /* Dynamic text color */
+    color: var(--light-background); /* Dynamic text color */
 }
 
 /* Dark mode styles for charts */
 .dark-mode .chart-container {
-    background-color: #333; /* Dark mode chart background */
+    background-color: var(--dark-container); /* Dark mode chart background */
 }
 
 /* Dark mode styles for transactions */
 .dark-mode .inc-exp-container {
-    background-color: #333; /* Dark mode transaction container background */
+    background-color: var(--dark-container); /* Dark mode transaction container background */
 }
 
 .dark-mode .list li {
-    background-color: #333; /* Dark mode list item background */
-    color: #cbc6c6; /* Dark mode text color */
+    background-color: var(--dark-container); /* Dark mode list item background */
+    color: var(--light-background); /* Dark mode text color */
 }
 
 .dark-mode .list li.plus {
@@ -55,13 +55,23 @@
 
 .dark-mode .delete-btn {
     background-color: #ff5252; /* Dark mode delete button background */
-    color: #cbc6c6; /* Dark mode delete button text color */
+    color: var(--light-background); /* Dark mode delete button text color */
 }
 
 .dark-mode .add-transaction-section {
-    background-color: #333; /* Dark mode add transaction section background */
+    background-color: var(--dark-container); /* Dark mode add transaction section background */
 }
 
 .dark-mode .dropdown-content a:hover {
-    background-color: #3bb01e; /* Dropdown hover background color */
+    background-color: var(--button-hover-color); /* Dropdown hover background color */
 }
+
+.dark-mode .form-button {
+    background-color: var(--button-color);
+    color: var(--light-background);
+}
+
+.dark-mode .form-button:hover {
+    background-color: var(--button-hover-color);
+}
+

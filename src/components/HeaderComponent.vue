@@ -1,4 +1,4 @@
 <template>
-    <h2>Expence Trancer</h2>
+    <h2>Expence Tracker</h2>
 
 </template>
