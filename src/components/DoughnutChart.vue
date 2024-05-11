@@ -2,14 +2,21 @@
     <canvas ref="doughnutChartCanvas"></canvas>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref, onMounted, watch } from 'vue';
 import Chart from 'chart.js/auto';
 
-const props = defineProps(['chartData', 'isDarkMode']);
+interface ChartData {
+  labels: string[];
+  datasets: { data: number[]; label: string; backgroundColor: string[] }[];
+}
 
-const doughnutChartCanvas = ref(null);
-let chartInstance = null;
+const props = defineProps<{
+  chartData: ChartData;
+  isDarkMode: boolean;
+}>();
+const doughnutChartCanvas = ref<HTMLCanvasElement | null>(null);
+let chartInstance: Chart<'doughnut'> | null = null;
 
 onMounted(() => {
     if (doughnutChartCanvas.value) {
@@ -25,7 +32,7 @@ watch(() => [props.chartData, props.isDarkMode], ([chartData, isDarkMode], [prev
 });
 
 const renderChart = () => {
-    chartInstance = new Chart(doughnutChartCanvas.value, {
+    chartInstance = new Chart(doughnutChartCanvas.value as HTMLCanvasElement, {
         type: 'doughnut',
         data: props.chartData,
         options: {
