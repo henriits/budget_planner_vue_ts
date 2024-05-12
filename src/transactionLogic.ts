@@ -2,12 +2,12 @@ import type { Ref } from 'vue';
 import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
 
-interface Transaction {
+export interface Transaction {
     id: number;
     text: string;
     amount: number;
     category: string;
-}
+  }
 
 const toast = useToast();
 export const transactions: Ref<Transaction[]> = ref([]);

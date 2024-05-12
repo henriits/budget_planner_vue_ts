@@ -17,16 +17,11 @@
 
 <script setup lang="ts">
 import { categoryColors } from "../categoryColors";
+import type { Transaction } from "../transactionLogic"
+import type { PropType } from 'vue';
 
 const emit = defineEmits(["transactionDeleted"]);
 
-interface Transaction {
-  id: number;
-  text: string;
-  amount: number;
-  category: string;
-}
-import type { PropType } from 'vue';
 
 defineProps({
   transactions: {

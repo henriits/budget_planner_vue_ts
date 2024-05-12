@@ -96,8 +96,8 @@ const expenses = computed(() => {
 });
 
 const incomeExpensesData = computed(() => {
-  const convertedIncome = parseFloat(convertAmount(parseFloat(income.value)));
-  const convertedExpenses = parseFloat(convertAmount(parseFloat(expenses.value)));
+  const convertedIncome = convertAmount(parseFloat(income.value));
+  const convertedExpenses = convertAmount(parseFloat(expenses.value));
 
   return {
     labels: ["Income", "Expenses"],
@@ -121,8 +121,9 @@ const categoryData = computed(() => {
       categories[transaction.category] = 0;
     }
     // Convert amount while retaining its sign (-amount)
-    const convertedAmount = parseFloat(convertAmount(Math.abs(transaction.amount))) * (Math.sign(transaction.amount));
-    categories[transaction.category] += convertedAmount;
+// Convert amount while retaining its sign (-amount)
+const convertedAmount = convertAmount((Math.abs(transaction.amount))) * (Math.sign(transaction.amount));
+categories[transaction.category] += convertedAmount;
   });
 
   const labels = Object.keys(categories);
