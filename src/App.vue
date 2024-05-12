@@ -10,16 +10,16 @@
         <div class="dropdown">
           <button class="dropbtn">Select Currency</button>
           <div class="dropdown-content">
-            <a v-for="(ratio, currency) in currencyRatios" :key="currency" @click="updateCurrencyRatio(currency)">{{
-              currency }}</a>
+            <a v-for="(ratio, currency) in currencyRatios" :key="currency" @click="updateCurrencyRatio(String(currency))">{{
+              currency + "" + ratio }}</a>
           </div>
         </div>
       </div>
       <div class="balance-div">
-        <BalanceComponent :total="+convertAmount(total)" :currencySymbol="selectedCurrency" />
+        <BalanceComponent :total="+convertAmount(parseFloat(total))" :currencySymbol="selectedCurrency" />
       </div>
       <div class="income-expense-div">
-        <IncomeExpenses :income="+convertAmount(income)" :expenses="+convertAmount(expenses)"
+        <IncomeExpenses :income="+convertAmount(parseFloat(income))" :expenses="+convertAmount(parseFloat(expenses))"
           :currencySymbol="selectedCurrency" />
       </div>
       <!-- Doughnut Chart -->
@@ -46,7 +46,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import DoughnutChart from "./components/DoughnutChart.vue"
 import HeaderComponent from "./components/HeaderComponent.vue";
 import BalanceComponent from "./components/BalanceComponent.vue";
@@ -66,8 +66,9 @@ import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
 onMounted(() => {
   loadDarkModePreference();
-  const savedTransactions = JSON.parse(localStorage.getItem("transactions"));
-  if (savedTransactions) {
+  const savedTransactionsJSON = localStorage.getItem("transactions");
+  if (savedTransactionsJSON) {
+    const savedTransactions = JSON.parse(savedTransactionsJSON);
     transactions.value = savedTransactions;
   }
   const savedCurrency = localStorage.getItem("selectedCurrency");
@@ -95,8 +96,8 @@ const expenses = computed(() => {
 });
 
 const incomeExpensesData = computed(() => {
-  const convertedIncome = convertAmount(income.value);
-  const convertedExpenses = convertAmount(expenses.value);
+  const convertedIncome = parseFloat(convertAmount(parseFloat(income.value)));
+  const convertedExpenses = parseFloat(convertAmount(parseFloat(expenses.value)));
 
   return {
     labels: ["Income", "Expenses"],
@@ -105,20 +106,22 @@ const incomeExpensesData = computed(() => {
         data: [convertedIncome, convertedExpenses],
         backgroundColor: ["#00C853", "#FF5252"],
         hoverBackgroundColor: ["#00C853", "#FF5252"],
+        borderWidth: 3,
+        label: "Income Expence"
       },
     ],
   };
 });
 
 const categoryData = computed(() => {
-  const categories = {};
+  const categories: Record<string, number> = {};
 
   transactions.value.forEach((transaction) => {
     if (!categories[transaction.category]) {
       categories[transaction.category] = 0;
     }
     // Convert amount while retaining its sign (-amount)
-    const convertedAmount = convertAmount(Math.abs(transaction.amount)) * Math.sign(transaction.amount);
+    const convertedAmount = parseFloat(convertAmount(Math.abs(transaction.amount))) * (Math.sign(transaction.amount));
     categories[transaction.category] += convertedAmount;
   });
 
@@ -133,6 +136,8 @@ const categoryData = computed(() => {
         data: data,
         backgroundColor: backgroundColor,
         hoverBackgroundColor: backgroundColor,
+        borderWidth: 3,
+        label: "All"
       },
     ],
   };

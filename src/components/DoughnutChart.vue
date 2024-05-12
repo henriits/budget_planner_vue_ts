@@ -7,9 +7,14 @@ import { ref, onMounted, watch } from 'vue';
 import Chart from 'chart.js/auto';
 
 interface ChartData {
-  labels: string[];
-  datasets: { data: number[]; label: string; backgroundColor: string[] }[];
-}
+     labels: string[];
+     datasets: {
+       data: number[];
+       label: string;
+       backgroundColor: string[];
+       hoverBackgroundColor: string[];  // Add this line
+     }[];
+   }
 
 const props = defineProps<{
   chartData: ChartData;
