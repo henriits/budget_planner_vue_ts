@@ -13,11 +13,12 @@ const toast = useToast();
 export const transactions: Ref<Transaction[]> = ref([]);
 
 export const handleTransactionSubmitted = (transactionData: {
+    id: number,
     text: string;
-    amount: string;
+    amount: number;
     category: string;
 }) => {
-    const amount = parseFloat(transactionData.amount);
+    const amount = transactionData.amount;
     if (isNaN(amount)) {
         toast.error('Please provide a valid amount for the transaction.');
         return;
