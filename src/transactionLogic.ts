@@ -7,13 +7,13 @@ export interface Transaction {
     text: string;
     amount: number;
     category: string;
-  }
+}
 
 const toast = useToast();
 export const transactions: Ref<Transaction[]> = ref([]);
 
 export const handleTransactionSubmitted = (transactionData: {
-    id: number,
+    id: number;
     text: string;
     amount: number;
     category: string;

@@ -1,6 +1,6 @@
 :root {
-    --root-color: #FCE1B5; /* Define your root color here */
-    --light-background: #FEF0D6;
+    --root-color: #fce1b5;
+    --light-background: #fef0d6;
     --button-color: #964116;
     --button-hover-color: #f3861c;
 }
@@ -9,8 +9,8 @@ body {
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
     margin: 0;
     padding: 0;
-    color: #0e0101; /* Light mode default color */
-    background-color: var(--light-background); /* Light mode default background */
+    color: #0e0101;
+    background-color: var(--light-background);
     transition: background-color 0.9s ease-in-out;
 }
 
@@ -57,7 +57,7 @@ select {
 }
 input[type='text']::placeholder,
 select::placeholder {
-    color: var(--light-background); /* Adjust opacity as needed */
+    color: var(--light-background);
 }
 
 .form-button {

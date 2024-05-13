@@ -7,18 +7,18 @@ import { ref, onMounted, watch } from 'vue';
 import Chart from 'chart.js/auto';
 
 interface ChartData {
-     labels: string[];
-     datasets: {
-       data: number[];
-       label: string;
-       backgroundColor: string[];
-       hoverBackgroundColor: string[];  // Add this line
-     }[];
-   }
+    labels: string[];
+    datasets: {
+        data: number[];
+        label: string;
+        backgroundColor: string[];
+        hoverBackgroundColor: string[];
+    }[];
+}
 
 const props = defineProps<{
-  chartData: ChartData;
-  isDarkMode: boolean;
+    chartData: ChartData;
+    isDarkMode: boolean;
 }>();
 const doughnutChartCanvas = ref<HTMLCanvasElement | null>(null);
 let chartInstance: Chart<'doughnut'> | null = null;
@@ -29,12 +29,18 @@ onMounted(() => {
     }
 });
 
-watch(() => [props.chartData, props.isDarkMode], ([chartData, isDarkMode], [prevChartData, prevIsDarkMode]) => {
-    if (doughnutChartCanvas.value && (chartData !== prevChartData || isDarkMode !== prevIsDarkMode)) {
-        destroyChart(); // Destroy existing chart before rendering new one
-        renderChart();
-    }
-});
+watch(
+    () => [props.chartData, props.isDarkMode],
+    ([chartData, isDarkMode], [prevChartData, prevIsDarkMode]) => {
+        if (
+            doughnutChartCanvas.value &&
+            (chartData !== prevChartData || isDarkMode !== prevIsDarkMode)
+        ) {
+            destroyChart(); // Destroy existing chart before rendering new one
+            renderChart();
+        }
+    },
+);
 
 const renderChart = () => {
     chartInstance = new Chart(doughnutChartCanvas.value as HTMLCanvasElement, {
@@ -47,14 +53,14 @@ const renderChart = () => {
                 legend: {
                     display: true,
                     labels: {
-                        color: props.isDarkMode ? 'rgba(252, 254, 254, 0.7)' : 'rgba(0,0,0)'
-                    }
+                        color: props.isDarkMode ? 'rgba(252, 254, 254, 0.7)' : 'rgba(0,0,0)',
+                    },
                 },
                 tooltip: {
                     enabled: true,
                 },
-            }
-        }
+            },
+        },
     });
 };
 
