@@ -1,64 +1,50 @@
-# deploy_page3
+# Simple Expense Tracker (MVP)
 
-This template should help get you started developing with Vue 3 in Vite.
+## Overview
+This Vue.js application provides a comprehensive financial dashboard that allows users to track their transactions, view balances, and analyze their income and expenses through interactive charts. It features a dark mode toggle and supports multiple currencies.
 
-## Recommended IDE Setup
+## Features
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+- **Dark Mode Toggle**: Users can switch between light and dark themes for better visibility according to their preference.
+- **Currency Selection**: Supports multiple currencies, allowing users to select and view financial data in their chosen currency.
+- **Transaction Management**: Add, view, and delete transactions from a dynamic list.
+- **Financial Charts**: Visualize income and expenses with Doughnut charts, providing a clear breakdown of financial activities.
+- **Persistent Storage**: Transactions and user preferences (like selected currency and theme) are saved locally to maintain state across sessions.
 
-## Type Support for `.vue` Imports in TS
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) to make the TypeScript language service aware of `.vue` types.
+## Setup and Installation
 
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
-
-## Project Setup
-
+1. Clone the repository.
+2. Install dependencies:
 ```sh
 npm install
 ```
-
-### Compile and Hot-Reload for Development
-
+3. Run the application locally:
 ```sh
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
 
-```sh
-npm run build
-```
+## Technologies Used
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+- Vue.js
+- TypeScript
+- FontAwesome for icons
+- LocalStorage for data persistence
+- Vitest for unit testing
+- Playwright for end-to-end testing
 
-```sh
-npm run test:unit
-```
+## Project Structure
 
-### Run End-to-End Tests with [Playwright](https://playwright.dev)
+- `src/components/`: Contains all the reusable components.
+- `src/`: Main source directory containing the Vue application.
 
-```sh
-# Install browsers for the first run
-npx playwright install
 
-# When testing on CI, must build the project first
-npm run build
 
-# Runs the end-to-end tests
-npm run test:e2e
-# Runs the tests only on Chromium
-npm run test:e2e -- --project=chromium
-# Runs the tests of a specific file
-npm run test:e2e -- tests/example.spec.ts
-# Runs the tests in debug mode
-npm run test:e2e -- --debug
-```
+## Future Enhancements
 
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+- **User Authentication**: Implement user login and registration to personalize and secure user data. This will require reintegrating Vue Router to handle different authentication states and navigation.
+- **Date-based Filtering for Charts**: Add functionality to track expenses and income on a weekly and monthly basis through interactive charts.
+- **Currency API Integration**: Integrate a currency conversion API to provide more currency options and real-time conversion rates.
+- **Extend Currency Support**: Enhance the current currency selection feature to include a broader range of currencies.
+- **State Management Upgrade**: Transition from LocalStorage to Pinia for enhanced state management across the application.
