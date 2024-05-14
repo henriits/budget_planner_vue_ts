@@ -1,7 +1,10 @@
 # Simple Expense Tracker (MVP)
 
+
 ## Overview
-This Vue.js application provides a comprehensive financial dashboard that allows users to track their transactions, view balances, and analyze their income and expenses through interactive charts. It features a dark mode toggle and supports multiple currencies.
+This Vue.js application provides a comprehensive financial dashboard that allows users to track their transactions, view balances, and analyze their income and expenses through interactive charts. It features a dark mode toggle and supports multiple currencies. 
+
+The application is currently running on GitHub Pages at [https://henriits.github.io/budget_planner_vue_ts/](https://henriits.github.io/budget_planner_vue_ts/).
 
 ## Features
 
