@@ -61,21 +61,21 @@ import BalanceComponent from './components/BalanceComponent.vue';
 import IncomeExpenses from './components/IncomeExpenses.vue';
 import TransactionList from './components/TransactionList.vue';
 import AddTransaction from './components/AddTransaction.vue';
-import { categoryColors } from './categoryColors';
-import { currencyRatios } from './currencyRatios';
+import { categoryColors } from './helperFunctions/categoryColors';
+import { currencyRatios } from './helperFunctions/currencyRatios';
 import { computed, onMounted } from 'vue';
 import {
     transactions,
     handleTransactionSubmitted,
     handleTransactionDeleted,
-} from './transactionLogic';
-import { isDarkMode, toggleDarkMode, loadDarkModePreference } from './darkModeLogic';
+} from './helperFunctions/transactionLogic';
+import { isDarkMode, toggleDarkMode, loadDarkModePreference } from './helperFunctions/darkModeLogic';
 import {
     selectedCurrency,
     updateCurrencyRatio,
     convertAmount,
     convertTransactions,
-} from './currencyLogic';
+} from './helperFunctions/currencyLogic';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import { faSun, faMoon } from '@fortawesome/free-solid-svg-icons';
 
@@ -139,7 +139,6 @@ const categoryData = computed(() => {
         if (!categories[transaction.category]) {
             categories[transaction.category] = 0;
         }
-        // Convert amount while retaining its sign (-amount)
         // Convert amount while retaining its sign (-amount)
         const convertedAmount =
             convertAmount(Math.abs(transaction.amount)) * Math.sign(transaction.amount);

@@ -4,14 +4,14 @@ import {
     updateCurrencyRatio,
     convertAmount,
     convertTransactions,
-} from '../currencyLogic';
-import { currencyRatios } from '../currencyRatios';
+} from '../helperFunctions/currencyLogic';
+import { currencyRatios } from '../helperFunctions/currencyRatios';
 import {
     transactions,
     handleTransactionSubmitted,
     handleTransactionDeleted,
     saveTransactionsToLocalStorage,
-} from '../transactionLogic';
+} from '../helperFunctions/transactionLogic';
 
 interface Transaction {
     id: number;

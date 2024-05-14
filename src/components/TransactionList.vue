@@ -22,8 +22,8 @@
 </template>
 
 <script setup lang="ts">
-import { categoryColors } from '../categoryColors';
-import type { Transaction } from '../transactionLogic';
+import { categoryColors } from '../helperFunctions/categoryColors';
+import type { Transaction } from '../helperFunctions/transactionLogic';
 import type { PropType } from 'vue';
 
 const emit = defineEmits(['transactionDeleted']);

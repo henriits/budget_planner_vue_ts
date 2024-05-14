@@ -55,8 +55,8 @@
 <script setup lang="ts">
 import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
-import { currencyRatios } from '../currencyRatios';
-import { categoryColors } from '../categoryColors';
+import { currencyRatios } from '../helperFunctions/currencyRatios';
+import { categoryColors } from '../helperFunctions/categoryColors';
 
 const text = ref('');
 const amount = ref('');
