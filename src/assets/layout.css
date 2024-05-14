@@ -1,19 +1,16 @@
-/* Container styles */
 .container {
     max-width: 1024px;
     margin: 0 auto;
     padding: 20px;
-    min-height: 100vh; /* Ensure minimum height of 100% viewport */
+    min-height: 100vh;
 }
 
-/* Header styles */
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* Media queries for responsiveness */
 @media (max-width: 768px) {
     .container {
         padding: 10px;

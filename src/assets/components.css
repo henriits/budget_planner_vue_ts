@@ -1,6 +1,5 @@
-/* Button styles */
 button {
-    background-color: var(--button-color); /* Light mode default background */
+    background-color: var(--button-color);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -10,17 +9,16 @@ button {
 }
 
 button:hover {
-    background-color: var(--button-hover-color); /* Light mode hover background */
+    background-color: var(--button-hover-color);
 }
 
-/* Dropdown styles */
 .dropdown {
     position: relative;
     display: inline-block;
 }
 
 .dropbtn {
-    background-color: var(--button-color); /* Light mode default background */
+    background-color: var(--button-color);
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -32,8 +30,8 @@ button:hover {
 .dropdown-content {
     display: none;
     position: absolute;
-    background-color: #fff; /* Dropdown background color */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Dropdown box shadow */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 8px 0;
     min-width: 160px;
@@ -41,7 +39,7 @@ button:hover {
 }
 
 .dropdown-content a {
-    color: #333; /* Dropdown text color */
+    color: #333;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
@@ -49,20 +47,20 @@ button:hover {
 }
 
 .dropdown-content a:hover {
-    background-color: var(--root-color); /* Dropdown hover background color */
+    background-color: var(--root-color);
 }
 
 .dropdown:hover .dropdown-content {
     display: block;
 }
-/* Charts styles */
+
 .charts {
-    display: flex; /* Arrange charts side-by-side */
-    justify-content: space-between; /* Space charts evenly */
+    display: flex;
+    justify-content: space-between; 
 }
 
 .chart-container {
-    width: 48%; /* Set each chart to 48% width */
+    width: 48%;
     padding-top: 15px;
     padding-bottom: 25px;
     border-radius: 30px;

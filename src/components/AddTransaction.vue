@@ -29,7 +29,6 @@
                 <option
                     v-for="category in categories"
                     :key="category"
-                    :style="{ backgroundColor: categoryColors[category] }"
                 >
                     {{ category }}
                 </option>
@@ -57,6 +56,7 @@ import { ref } from 'vue';
 import { useToast } from 'vue-toastification';
 import { currencyRatios } from '../helperFunctions/currencyRatios';
 import { categoryColors } from '../helperFunctions/categoryColors';
+import { categories } from '../helperFunctions/categoryList';
 
 const text = ref('');
 const amount = ref('');
@@ -65,15 +65,7 @@ const selectedCurrency = ref('');
 const emit = defineEmits(['transactionSubmitted']);
 const toast = useToast();
 
-const categories = [
-    'Food',
-    'Transportation',
-    'Shopping',
-    'Entertainment',
-    'Utilities',
-    'Others',
-    'Income',
-];
+
 
 const onSubmit = () => {
     if (!text.value || !amount.value || !selectedCategory.value || !selectedCurrency.value) {
