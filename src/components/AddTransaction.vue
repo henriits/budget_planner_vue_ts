@@ -1,5 +1,6 @@
 <template>
     <h3>Add new transaction</h3>
+    <h5>NB! For income write <u>positive</u> amount, for expense <u>negative</u> amount!</h5>
     <form id="form" @submit.prevent="onSubmit">
         <div class="form-control">
             <input
